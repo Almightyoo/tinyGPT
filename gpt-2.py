@@ -167,10 +167,20 @@ def get_batch(split):
         x, y = x.to(device), y.to(device)
     return x, y
 
-
+import torch.optim as optim 
 x,y = get_batch('train')
 
 model = GPT(GPTConfig())
-logits,loss = model(x,y)
-print(loss)
+optimizer = optim.AdamW(model.parameters(), lr=3e-4)
+from tqdm import tqdm 
+
+for i in tqdm(range(5)):
+    optimizer.zero_grad()
+    logits,loss = model(x,y)
+    loss.backward()
+    optimizer.step()
+    print(loss)
+    
+
+
 
