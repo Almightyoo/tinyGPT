@@ -1,1 +1,5 @@
 .venv/
+
+/data/train.bin
+/data/val.bin
+/data/input.txt
