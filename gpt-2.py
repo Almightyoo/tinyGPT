@@ -18,8 +18,6 @@ class GPTConfig:
     bias: float = True
 
 
-
-
 class GPT(nn.Module):
     def __init__(self, config):
         super().__init__()
